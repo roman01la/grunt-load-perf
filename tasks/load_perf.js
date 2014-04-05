@@ -167,13 +167,13 @@ module.exports = function (grunt) {
 
         if (!options.animation) {
           done();
-        } else {
+        } else if (options.cwd) {
 
           var args = [
             '-delay', 100,
             '-loop', 0,
-            path.join(__dirname + '/../' + options.output, 'scrn-*'),
-            path.join(__dirname + '/../' + options.output, options.animation)
+            path.join(options.cwd + '/' + options.output, 'scrn-*'),
+            path.join(options.cwd + '/' + options.output, options.animation)
           ];
 
           var animation = spawn('convert', args);
@@ -181,9 +181,36 @@ module.exports = function (grunt) {
           grunt.log.writeln( ('Processing images... Creating animation...').cyan );
 
           animation.stdout.on('end', function() {
-            done();
+
+            fs.readdir(path.join(options.cwd + '/' + options.output), function (err, files) {
+              if (err) grunt.fatal(err);
+
+              var count = 1;
+
+              files.forEach(function (file, index) {
+
+                if (!!file.match('scrn-')) {
+
+                  fs.unlink(path.join(options.cwd + '/' + options.output, file), function (err) {
+                    if (err) grunt.fatal(err);
+
+                    if (count === files.length - 1) {
+                      done();
+                    }
+
+                    count++;
+                  });
+
+                }
+
+              });
+
+            });
+
           });
 
+        } else {
+            grunt.warn('Root path (cwd) must be specified!');
         }
       });
     });

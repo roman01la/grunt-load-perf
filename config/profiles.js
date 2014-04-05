@@ -1,9 +1,6 @@
 /*
- * grunt-load-perf
+ * Network profiles
  *
- *
- * Copyright (c) 2014 Roman Liutikov
- * Licensed under the MIT license.
  */
 
 'use strict';

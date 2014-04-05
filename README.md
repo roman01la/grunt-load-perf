@@ -93,6 +93,12 @@ Default value: `load-perf/`
 
 Screenshots directory.
 
+#### options.cwd
+Type: `String`
+Default value: `undefined`
+
+Project root directory.
+
 #### options.fps
 Type: `Number`
 Default value: `2`
@@ -149,6 +155,7 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+- 2014-04-05   v0.1.1   Fix animation output
 - 2014-04-05   v0.1.0   Initial release
 
 ## License
