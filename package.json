@@ -16,7 +16,10 @@
     "url": "https://github.com/roman01la/grunt-load-perf/issues"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "performance",
+    "loading",
+    "rendering"
   ],
   "main": "Gruntfile.js",
   "engines": {
