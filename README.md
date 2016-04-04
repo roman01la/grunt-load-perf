@@ -1,5 +1,7 @@
 # grunt-load-perf
 
+![](https://img.shields.io/badge/maintainer%20needed-!-red.svg)
+
 > Grunt task for generating visual report to measure web applications loading and rendering performance.
 
 ## Getting Started
